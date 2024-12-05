@@ -4,10 +4,10 @@ library(dplyr) #Manipulating data
 library(ggplot2) #Plotting
 
 #Setting working directory
-setwd("~/Documents/UNH/Semester3/Business Forecasting/Assignment Files")
+setwd("~/Documents/Mac Projects")
 
 ###Part 1: Data Preparation
-admission.data<- read.csv("ECON_6635 Assignment 3.csv")
+admission.data<- read.csv("Admission_Data.csv")
 
 #Exploring the data
 head(admission.data) #To understand the columns we are working with
@@ -70,7 +70,7 @@ cm_test <- yardstick::conf_mat(cm_data_test, obs, pred)
 autoplot(cm_test, type = "heatmap") +
   scale_fill_gradient(low = "yellow", high = "cyan")
 
-###Part 5: Apply the Model to New Data (20 points)
+###Part 5: Apply the Model to New Data 
 new_data <- read.csv2("new_data.csv", sep = ",")
 new_data$gpa <- as.numeric(new_data$gpa) #Explicit mention to prevent errors
 str(new_data)
@@ -81,4 +81,3 @@ new_data$predicted_admit <- ifelse(predict(admission_glm, newdata = new_data,
 
 # New data set with Predictions
 head(new_data)
-
